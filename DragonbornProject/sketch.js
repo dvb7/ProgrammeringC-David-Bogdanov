@@ -48,6 +48,19 @@ function draw() {
 		line(((i+1)*100)+8, 80, ((i+1)*100)+16, 70);
 
 		//Gimme a mouth, baby
+		arc(((i+1)*100), 110, 30, 30, radians(180), 0, PIE); 
+
+		//Show their breath weapon
+		switch (db.dragonborn[i].damagetype) {
+			case ("Acid"):
+				fill('rgb(176,191,26)');
+				break;
+			case ("Lightning"):
+				fill('rgb(250,250,55)');
+				break;
+			case ("Fire"):
+				fill('rgb(255,0,56)');
+		}
 		
 	}
 }
