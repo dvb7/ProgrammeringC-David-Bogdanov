@@ -52,13 +52,13 @@ function draw() {
 
 		//Show their breath weapon
 		switch (db.dragonborn[i].damagetype) {
-			case ("Acid"):
+			case "Acid":
 				fill('rgb(176,191,26)');
 				break;
-			case ("Lightning"):
+			case "Lightning":
 				fill('rgb(250,250,55)');
 				break;
-			case ("Fire"):
+			case "Fire":
 				fill('rgb(255,0,56)');
 		}
 		
