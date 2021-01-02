@@ -7,6 +7,8 @@ function setup() {
 
 function draw() {
 
+	ellipse(10,10,20)
+
 	switch (bgcolor) {
 		case "red":
 			background('rgb(200,0,0');
@@ -19,7 +21,4 @@ function draw() {
 		case "yellow":
 			background('rgb(252,194,0)')
 	}
-	
-	
-	
 }
