@@ -1,24 +1,12 @@
-var bgcolor = "red";
+let h = 0;
+let v = 0;
 
 function setup() {
-	createCanvas(200, 200);
-	
+	createCanvas(800, 600);
 }
 
 function draw() {
-
-	ellipse(10,10,20)
-
-	switch (bgcolor) {
-		case "red":
-			background('rgb(200,0,0');
-			break;
-		
-		case "blue":
-			background('rgb(46,88,148)');
-			break;
-
-		case "yellow":
-			background('rgb(252,194,0)')
-	}
+	background(150)
+	
+	ellipse(375+h,275+v,50)
 }
