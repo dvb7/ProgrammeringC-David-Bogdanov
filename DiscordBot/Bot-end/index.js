@@ -15,7 +15,7 @@ client.login(process.env.BOTTOKEN);
 client.on('message', gotMessage);
 
 function gotMessage(msg) {
-    if (msg.channel.id == '677529835685543959' && msg.content === "Funny cat Garfield") {
+    if (msg.channel.id == process.env.CHANNELID && msg.content === "Funny cat Garfield") {
         //msg.reply("no");
         msg.channel.send("no");
     }
