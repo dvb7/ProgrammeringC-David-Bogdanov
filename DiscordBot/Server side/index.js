@@ -1,3 +1,4 @@
+//Setup dotenv, so that the .env file works
 require("dotenv").config();
 
 //Variable setup
@@ -41,9 +42,10 @@ function gotMessage(msg) {
     }
 }
 
-let allData = [ vchange, hchange ];
-
+//Make the variables available, 
+//and send them if anybody tries to fetch them.
 app.post('/api', (response) => {
+    let allData = [ vchange, hchange ];
     response.json(allData);
     console.log(allData, "data sent");
   });

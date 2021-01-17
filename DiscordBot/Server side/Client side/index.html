@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<!-- Setup p5.js -->
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>p5SampleProject</title>
+	<title>DiscordBot</title>
 
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
 	<script src="libraries/p5.sound.js"></script>
-	<script src="sketch.js"></script>
 
 	<style>
 		body {
@@ -27,7 +25,6 @@
 </head>
 <body>
 	<script>
-
 		//Canvas setup
 		function setup() {
 			createCanvas(800, 600);
@@ -42,8 +39,6 @@
 		background(150)
 
 		ellipse(375+h,275+v,50)
-
-
 		}
 
 		//Get info from server using fetch()
@@ -53,8 +48,6 @@
 			const data = await response.json();
 			console.log(data, "data recieved");
 			return(data)
-			
-			
 		}
 
 		//Use the info from the server to change 
@@ -66,6 +59,7 @@
 
 		//Set an interval for getting info from the server
 		setInterval(useInfo, 1000);
+
 	</script>
 </body>
 </html>
