@@ -43,24 +43,29 @@
 
 		ellipse(375+h,275+v,50)
 
+
 		}
 
 		//Get info from server using fetch()
 		async function getInfo() {
+			console.log("working...");
 			const response = await fetch('/api');
 			const data = await response.json();
+			console.log(data, "data recieved");
 			return(data)
-			console.log(data);
+			
 			
 		}
 
 		//Use the info from the server to change 
 		//the position of the circle
-		h += getInfo().hchange;
-		v += getInfo().vchange;
+		function useInfo() {
+			h += getInfo().hchange;
+			v += getInfo().vchange;
+		}
 
 		//Set an interval for getting info from the server
-		setInterval(getInfo, 1000);
+		setInterval(useInfo, 1000);
 	</script>
 </body>
 </html>

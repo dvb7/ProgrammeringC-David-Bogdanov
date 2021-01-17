@@ -45,5 +45,5 @@ let allData = [ vchange, hchange ];
 
 app.post('/api', (response) => {
     response.json(allData);
-    console.log(allData);
+    console.log(allData, "data sent");
   });
