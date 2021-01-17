@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Setup p5.js -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>p5SampleProject</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="sketch.js"></script>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		canvas {
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+	<script>
+
+		//Canvas setup
+		function setup() {
+			createCanvas(800, 600);
+		}
+
+		//Variable setup
+		let h = 0;
+		let v = 0;
+
+		//Draw the bg and the circle
+		function draw() {
+		background(150)
+
+		ellipse(375+h,275+v,50)
+
+		}
+
+		//Get info from server using fetch()
+		async function getInfo() {
+			const response = await fetch('/api');
+			const data = await response.json();
+			return(data)
+			console.log(data);
+			
+		}
+
+		//Use the info from the server to change 
+		//the position of the circle
+		h += getInfo().hchange;
+		v += getInfo().vchange;
+
+		//Set an interval for getting info from the server
+		setInterval(getInfo, 1000);
+	</script>
+</body>
+</html>
