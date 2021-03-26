@@ -25,9 +25,14 @@
 </head>
 <body>
 	<script>
-		//Canvas setup
+		//Setup canvas
 		function setup() {
 			createCanvas(800, 600);
+		}
+
+		//Preload database
+		function preload() {
+			loadJSON('./../#Input/database.json', gotData);
 		}
 
 		//Variable setup
@@ -41,24 +46,16 @@
 		ellipse(375+h,275+v,50)
 		}
 
-		//Get info from server using fetch()
-		async function getInfo() {
-			console.log("working...");
-			const response = await fetch('/api');
-			const data = await response.json();
-			console.log(data, "data recieved");
-			return(data)
-		}
 
-		//Use the info from the server to change 
+		//Use the info from the database to change 
 		//the position of the circle
-		function useInfo() {
-			h += getInfo().hchange;
-			v += getInfo().vchange;
+		function gotData(data) {
+			h += data.hchange;
+			v += data.vchange;
 		}
 
-		//Set an interval for getting info from the server
-		setInterval(useInfo, 1000);
+		//Set an interval for getting info from the database
+		//setInterval(, 1000);
 
 	</script>
 </body>
