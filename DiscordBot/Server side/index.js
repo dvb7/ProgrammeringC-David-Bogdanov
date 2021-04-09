@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 //Variable setup
-obj = { vchange:-50, hchange:50 }
+obj = { vchange:-50, hchange:50, color:'rgb(0,0,0)', size:50, shape:"cir" }
 let data;
 
 const { info } = require("console");
@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 //Setup fs
 var fs = require("fs");
-var logger = "|SERVER LOG:| "
+var logger = "|BOT LOG:| "
 
 //Make the bot do something, if a message is sent.
 client.on('message', gotMessage);
@@ -28,6 +28,22 @@ client.on('message', gotMessage);
 function gotMessage(msg) {
     if (msg.channel.id == process.env.CHANNELID) {
         switch (msg.content) {
+            
+            //Colors
+            case "!red":
+                msg.channel.send("Going red!")
+                obj.color == 'rgb(220,0,0)'
+                break;
+            case "!green":
+                msg.channel.send("Going green!")
+                obj.color == 'rgb(0,220,0)'
+                break;
+            case "!blue":
+                msg.channel.send("Going blue!")
+                obj.color == 'rgb(0,0,220)'
+                break;
+            
+            //Directions
             case "!up":
                 msg.channel.send("Moving up!");
                 obj.vchange -= 5;
@@ -44,6 +60,38 @@ function gotMessage(msg) {
                 msg.channel.send("Moving right!");
                 obj.hchange += 5;
                 break;
+
+            //Sizes
+            case "!big":
+                msg.channel.send("Going big!")
+                obj.size += 40
+                break;
+            case "!small":
+                msg.channel.send("Going home!")
+                
+                if (obj.size >= 40) {
+                    obj.size -= 40
+                } else {
+                    obj.size -= obj.size
+                }
+                
+                break;
+
+            //Shapes
+            case "!circle":
+                msg.channel.send("Going round!")
+                obj.shape == "cir"
+                break;
+            case "!square":
+                msg.channel.send("Going boxing!")
+                obj.shape == "squ"
+                break;
+            case "!triangle":
+                msg.channel.send("Going sharp!")
+                obj.shape == "tri"
+                break;
+
+            //Easter Eggs
             case "!upupdowndownleftrightleftrightb-a-b-astart":
                 msg.channel.send("Secret unlocked! 🥳🎉");
         }

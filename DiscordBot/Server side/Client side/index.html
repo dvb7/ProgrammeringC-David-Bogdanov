@@ -28,18 +28,19 @@
 		//Setup canvas
 		function setup() {
 			createCanvas(800, 600);
+			let data = "";
 		}
 		
-		let data = "";
+		
 	
 		//Preload database
 		function preload() {
-			data = loadJSON('Client side/#Input/database.json');
+			data = loadJSON('#Input/database.json', gotData);
 		}
 
 		//Variable setup
-		let h = data.hchange;
-		let v = data.vchange;
+		let h = 25;
+		let v = 25;
 
 
 		//Draw the bg and the circle
