@@ -28,34 +28,50 @@
 		//Setup canvas
 		function setup() {
 			createCanvas(800, 600);
-			let data = "";
+			let data = [];
 		}
-		
-		
 	
-		//Preload database
+/* 		//Preload database
 		function preload() {
 			data = loadJSON('#Input/database.json', gotData);
-		}
+		} */
 
 		//Variable setup
 		let h = 25;
-		let v = 25;
+		let v = 250;
+		let s = 500;
+		let f = "tri"
+		let c = 'rgb(50,250,50)'
 
-
-		//Draw the bg and the circle
+		//Draw the bg and the shape
 		function draw() {
 		background(150)
 
-		ellipse(375+h,275+v,50)
+		//Choose fill
+		fill(c)
+
+		//Draw the shape
+		switch (f) {
+			case "cir":
+				ellipse(375+h,275+v,s)
+				break;
+			case "squ":
+				rect(350+h,250+v,s,s)
+				break;
+			case "tri":
+				triangle(375+h-s, 275+v-s, 375+h, 275+v+s, 375+h+s, 275+v-s);
+		}
 		}
 
 
 		//Use the info from the database to change 
 		//the position of the circle
 		function gotData(data) {
-			h += data.hchange;
-			v += data.vchange;
+			h == data.hchange;
+			v == data.vchange;
+			s == data.size;
+			f == data.shape;
+			c == data.color;
 		}
 
 		//Set an interval for getting info from the database
