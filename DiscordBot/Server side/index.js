@@ -3,7 +3,6 @@ require("dotenv").config();
 
 //Variable setup
 obj = { vchange:-50, hchange:50, color:'rgb(0,0,0)', size:50, shape:"cir" }
-let data;
 
 const { info } = require("console");
 //Setup the discord bot
@@ -104,7 +103,7 @@ function gotMessage(msg) {
 
 
 function createFile(input, type){
-    fs.writeFile("./../Server side/Client side/#Input/" + type + ".json", input, (err) => {
+    fs.writeFile("./../Server side/Client side/" + type + ".json", input, (err) => {
         // Rest of your code
         if (err) throw err;               
         console.log(logger + "FILE SENT");
